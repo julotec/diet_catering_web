@@ -1,0 +1,91 @@
+{% extends "main.html" %} {% block main %} {% load static %}
+<!-- book section -->
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>Order your diet today</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form action="{% url 'order' %}" method="POST">
+            {% csrf_token %}
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                id="number"
+                name="number"
+                placeholder="Phone Number"
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div>
+              <select
+                class="form-control nice-select wide"
+                id="variant"
+                name="variant"
+              >
+                <option value="">Which variant?</option>
+                <option value="Allday">Allday</option>
+                <option value="Family pack">Family pack</option>
+                <option value="Medium">Medium</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Lunch+">Lunch+</option>
+                <option value="Medium+">Medium+</option>
+              </select>
+            </div>
+            <div>
+              <select
+                class="form-control nice-select wide"
+                id="kcal"
+                name="kcal"
+              >
+                <option value="">How many calories?</option>
+                <option value="1200 kcal">1200 kcal</option>
+                <option value="1400 kcal">1400 kcal</option>
+                <option value="1500 kcal">1500 kcal</option>
+                <option value="1750 kcal">1750 kcal</option>
+                <option value="1900 kcal">1900 kcal</option>
+                <option value="2150 kcal">2150 kcal</option>
+                <option value="2350 kcal">2350 kcal</option>
+                <option value="2550 kcal">2550 kcal</option>
+                <option value="2700 kcal">2700 kcal</option>
+              </select>
+            </div>
+            <div>
+              <input type="date" id="date" name="date" class="form-control" />
+            </div>
+            <div class="btn_box">
+              <button>Order Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="map_container">
+          <div id="googleMap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end book section -->
+{ {% endblock main %}}
